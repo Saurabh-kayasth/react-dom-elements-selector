@@ -6,7 +6,7 @@ import Example1 from './components/Examples/Example1'
 import Config from './components/Config'
 
 function App() {
-  const [showSelectionArea, setShowSelectionArea] = useState(false)
+  const [showSelectionArea, setShowSelectionArea] = useState(true)
   const [requiresShiftKey, setRequiresShiftKey] = useState(false)
   const [selectOnMouseUp, setSelectOnMouseUp] = useState(false)
 
