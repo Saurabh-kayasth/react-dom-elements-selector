@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { type DomPickerProps, type DomRect } from './types'
 
 const LOG = '[DOM PICKER LOG]'
@@ -10,38 +10,46 @@ const DomPicker: React.FC<DomPickerProps> = ({
   requiresShiftKey = false,
   selectOnMouseUp = false
 }) => {
-  const [selection, setSelection] = useState<DomRect | null>(null)
   const containerRef = useRef<HTMLDivElement>(null)
+  const [selectedRect, setSelectedRect] = useState<DomRect | null>(null)
 
   const handleMouseDown = (event: React.MouseEvent<HTMLDivElement>): void => {
+    event.preventDefault()
     if (requiresShiftKey && !event.shiftKey) return
 
     const { clientX, clientY } = event
-    setSelection({ x: clientX, y: clientY, width: 0, height: 0 })
-  }
+    let currentSelection = { x: clientX, y: clientY, width: 0, height: 0 }
 
-  const handleMouseUp = (): void => {
-    selectElements()
-    setSelection(null)
-  }
+    const handleMouseUp = (): void => {
+      selectElements(currentSelection)
+      setSelectedRect(null)
 
-  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>): void => {
-    if (requiresShiftKey && !event.shiftKey) return
-
-    if (selection != null) {
-      const { clientX, clientY } = event
-      const { x, y } = selection
-      setSelection({
-        x,
-        y,
-        width: clientX - x,
-        height: clientY - y
-      })
-      if (!selectOnMouseUp) selectElements()
+      document.removeEventListener('mousemove', handleMouseMove)
+      document.removeEventListener('mouseup', handleMouseUp)
     }
+
+    const handleMouseMove = (event: MouseEvent): void => {
+      if (requiresShiftKey && !event.shiftKey) return
+
+      if (currentSelection != null) {
+        const { clientX, clientY } = event
+        const { x, y } = currentSelection
+        currentSelection = {
+          x,
+          y,
+          width: clientX - x,
+          height: clientY - y
+        }
+        setSelectedRect(currentSelection)
+        if (!selectOnMouseUp) selectElements(currentSelection)
+      }
+    }
+
+    document.addEventListener('mousemove', handleMouseMove)
+    document.addEventListener('mouseup', handleMouseUp)
   }
 
-  const selectElements = (): void => {
+  const selectElements = (selection: DomRect): void => {
     if (containerRef.current == null || selection == null) return
 
     const container = containerRef.current
@@ -50,7 +58,7 @@ const DomPicker: React.FC<DomPickerProps> = ({
     const selectedElements: Element[] = []
     elements.forEach((element) => {
       const rect = element.getBoundingClientRect()
-      if (isWithinSelection(rect)) {
+      if (isWithinSelection(rect, selection)) {
         selectedElements.push(element)
       }
     })
@@ -58,7 +66,7 @@ const DomPicker: React.FC<DomPickerProps> = ({
     onPick(selectedElements)
   }
 
-  const isWithinSelection = (rect: DomRect): boolean => {
+  const isWithinSelection = (rect: DomRect, selection: DomRect): boolean => {
     if (selection == null) return false
 
     const { x, y, width, height } = rect
@@ -76,8 +84,6 @@ const DomPicker: React.FC<DomPickerProps> = ({
     <div
       ref={containerRef}
       onMouseDown={handleMouseDown}
-      onMouseMove={handleMouseMove}
-      onMouseUp={handleMouseUp}
       style={{ width: '100%', height: '100%' }}
     >
       {children}
@@ -85,10 +91,10 @@ const DomPicker: React.FC<DomPickerProps> = ({
         <div
           style={{
             position: 'absolute',
-            top: selection?.y,
-            left: selection?.x,
-            width: selection?.width,
-            height: selection?.height,
+            top: selectedRect?.y,
+            left: selectedRect?.x,
+            width: selectedRect?.width,
+            height: selectedRect?.height,
             backgroundColor: 'rgba(255, 255, 255, 0.1)',
             border: '1px solid rgba(255,255,255,0.25)'
           }}

@@ -17,7 +17,7 @@ function Example1() {
   }
 
   return (
-    <DomPicker onPick={onPick} selectOnMouseUp>
+    <DomPicker onPick={onPick} requiresShiftKey selectOnMouseUp>
       <div
         className={`${styles.example__container} ${styles.example1__card_container}`}
       >
