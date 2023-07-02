@@ -29,6 +29,7 @@ function Card({ title, description, isOn, onChange }: CardProps) {
 function Config({ config, setConfig }: IConfig) {
   return (
     <div className={styles.config__container}>
+      <div className={styles.props_title}>Props</div>
       <Card
         title="Show Selection Area"
         description="Draws rectangle on selected area"

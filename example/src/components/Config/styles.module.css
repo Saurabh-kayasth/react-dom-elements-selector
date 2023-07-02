@@ -10,9 +10,15 @@
     height: 100%;
 }
 
+.config__container .props_title {
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+}
+
 .card {
     padding: 10px;
-    background-color: #1e1e1e;
+    background-color: #000;
     display: flex;
     justify-content: space-between;
     align-items: center;
