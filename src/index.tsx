@@ -1,10 +1,4 @@
-import React from 'react'
+import ElementsSelector from './components/ElementsSelector'
+import { type ElementsSelectorProps } from './components/ElementsSelector/types'
 
-export interface ButtonProps {
-  text: string
-  onClick: () => void
-}
-
-export const Button: React.FC<ButtonProps> = ({ text, onClick }) => {
-  return <button onClick={onClick}>{text}</button>
-}
+export { ElementsSelector, type ElementsSelectorProps }

@@ -1,26 +1,34 @@
-import React from 'react'
-import logo from './logo.svg'
+import React, { useState } from 'react'
 import './App.css'
-import { Button } from 'react-ts-npm-pkg-boilerplate'
+import Header from './components/Header'
+import Body from './components/Body'
+import Example1 from './components/Examples/Example1'
+import Config from './components/Config'
 
 function App() {
+  const [showSelectionArea, setShowSelectionArea] = useState(true)
+  const [requiresShiftKey, setRequiresShiftKey] = useState(false)
+  const [selectOnMouseUp, setSelectOnMouseUp] = useState(false)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Button text="je" onClick={() => {}} />
-      </header>
+    <div className="app">
+      <Header />
+      <Body>
+        <Example1
+          showSelectionArea={showSelectionArea}
+          requiresShiftKey={requiresShiftKey}
+          selectOnMouseUp={selectOnMouseUp}
+        />
+
+        <Config
+          config={{ selectOnMouseUp, showSelectionArea, requiresShiftKey }}
+          setConfig={(config) => {
+            setRequiresShiftKey(config.requiresShiftKey)
+            setSelectOnMouseUp(config.selectOnMouseUp)
+            setShowSelectionArea(config.showSelectionArea)
+          }}
+        />
+      </Body>
     </div>
   )
 }

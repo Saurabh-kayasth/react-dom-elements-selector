@@ -1,0 +1,16 @@
+.header__title {
+    font-size: 1.3rem;
+    color: #fff;
+    font-weight: bolder;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+    background-color: rgba(0,0,0,1);
+    box-shadow: 5px 5px 10px #333;
+}
+
+.dom__text {
+    color: #ff0000;
+}

@@ -1,0 +1,46 @@
+.config__container {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    box-shadow:
+        -5px 0px 10px 0 rgba(0, 0, 0, 0.6),
+        5px 0px 10px 0 rgba(0, 0, 0, 0.6);
+    border: 1px solid #3333336a;
+    padding: 2px 0px;
+    border-radius: 5px;
+    height: 100%;
+}
+
+.config__container .props_title {
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+}
+
+.card {
+    padding: 10px;
+    background-color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.card .title {
+    color: #fff;
+    padding: 0;
+    margin: 0;
+}
+
+.card .description {
+    color: #fff;
+    opacity: 0.7;
+    padding: 0;
+    margin: 0;
+    margin-top: 5px;
+    font-size: 0.8rem;
+}
+
+.card .checkbox {
+    cursor: pointer;
+}
