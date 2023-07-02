@@ -3,6 +3,7 @@ export interface DomPickerProps {
   onPick: (selectedElements: Element[]) => void
   showSelectionArea?: boolean
   requiresShiftKey?: boolean
+  selectOnMouseUp?: boolean
 }
 
 export interface DomRect {

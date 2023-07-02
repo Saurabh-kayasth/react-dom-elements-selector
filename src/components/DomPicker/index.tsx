@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef } from 'react'
 import { type DomPickerProps, type DomRect } from './types'
 
 const LOG = '[DOM PICKER LOG]'
@@ -7,29 +7,22 @@ const DomPicker: React.FC<DomPickerProps> = ({
   children,
   onPick,
   showSelectionArea = true,
-  requiresShiftKey = false
+  requiresShiftKey = false,
+  selectOnMouseUp = false
 }) => {
   const [selection, setSelection] = useState<DomRect | null>(null)
   const containerRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const handleMouseUp = (): void => {
-      setSelection(null)
-      selectElements()
-    }
-
-    document.addEventListener('mouseup', handleMouseUp)
-
-    return () => {
-      document.removeEventListener('mouseup', handleMouseUp)
-    }
-  }, [])
 
   const handleMouseDown = (event: React.MouseEvent<HTMLDivElement>): void => {
     if (requiresShiftKey && !event.shiftKey) return
 
     const { clientX, clientY } = event
     setSelection({ x: clientX, y: clientY, width: 0, height: 0 })
+  }
+
+  const handleMouseUp = (): void => {
+    selectElements()
+    setSelection(null)
   }
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>): void => {
@@ -44,7 +37,7 @@ const DomPicker: React.FC<DomPickerProps> = ({
         width: clientX - x,
         height: clientY - y
       })
-      selectElements()
+      if (!selectOnMouseUp) selectElements()
     }
   }
 
@@ -84,6 +77,7 @@ const DomPicker: React.FC<DomPickerProps> = ({
       ref={containerRef}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
       style={{ width: '100%', height: '100%' }}
     >
       {children}
