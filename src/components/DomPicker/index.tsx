@@ -6,7 +6,8 @@ const LOG = '[DOM PICKER LOG]'
 const DomPicker: React.FC<DomPickerProps> = ({
   children,
   onPick,
-  showSelectionArea = true
+  showSelectionArea = true,
+  requiresShiftKey = false
 }) => {
   const [selection, setSelection] = useState<DomRect | null>(null)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -25,11 +26,15 @@ const DomPicker: React.FC<DomPickerProps> = ({
   }, [])
 
   const handleMouseDown = (event: React.MouseEvent<HTMLDivElement>): void => {
+    if (requiresShiftKey && !event.shiftKey) return
+
     const { clientX, clientY } = event
     setSelection({ x: clientX, y: clientY, width: 0, height: 0 })
   }
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>): void => {
+    if (requiresShiftKey && !event.shiftKey) return
+
     if (selection != null) {
       const { clientX, clientY } = event
       const { x, y } = selection
