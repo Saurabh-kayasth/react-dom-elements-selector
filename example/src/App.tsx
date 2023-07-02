@@ -1,26 +1,20 @@
 import React from 'react'
-import logo from './logo.svg'
 import './App.css'
-import { Button } from 'react-ts-npm-pkg-boilerplate'
+import Header from './components/Header'
+import Body from './components/Body'
+import Example1 from './components/Examples/Example1'
+import Example2 from './components/Examples/Example2'
+import Example3 from './components/Examples/Example3'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Button text="je" onClick={() => {}} />
-      </header>
+    <div className="app">
+      <Header />
+      <Body>
+        <Example1 />
+        <Example2 />
+        <Example3 />
+      </Body>
     </div>
   )
 }
