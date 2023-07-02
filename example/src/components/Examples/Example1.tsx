@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { DomPicker } from 'react-dom-picker'
+import { ElementsSelector } from 'react-elements-selector'
 import styles from './styles.module.css'
 import { CARDS } from '../../utils/ExampleUtils'
 import { ConfigProps } from '../../types'
@@ -11,10 +11,9 @@ function Example1({
 }: ConfigProps) {
   const [selectedCardIds, setSelectedCardIds] = useState<string[]>([])
 
-  const onPick = (elements: Element[]) => {
-    console.log('LOG', elements)
+  const onSelect = (elements: Element[]) => {
     const elementIds = elements.map((e) => e.id)
-    setSelectedCardIds((ids) => [...ids, ...elementIds])
+    setSelectedCardIds(elementIds)
   }
 
   const isHighlighted = (id: string) => {
@@ -22,8 +21,8 @@ function Example1({
   }
 
   return (
-    <DomPicker
-      onPick={onPick}
+    <ElementsSelector
+      onSelect={onSelect}
       showSelectionArea={showSelectionArea}
       requiresShiftKey={requiresShiftKey}
       selectOnMouseUp={selectOnMouseUp}
@@ -46,7 +45,7 @@ function Example1({
           )
         })}
       </div>
-    </DomPicker>
+    </ElementsSelector>
   )
 }
 

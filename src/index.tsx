@@ -1,4 +1,4 @@
-import DomPicker from './components/DomPicker'
-import { type DomPickerProps } from './components/DomPicker/types'
+import ElementsSelector from './components/ElementsSelector'
+import { type ElementsSelectorProps } from './components/ElementsSelector/types'
 
-export { DomPicker, type DomPickerProps }
+export { ElementsSelector, type ElementsSelectorProps }

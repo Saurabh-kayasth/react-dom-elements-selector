@@ -1,11 +1,9 @@
 import React, { useRef, useState } from 'react'
-import { type DomPickerProps, type DomRect } from './types'
+import { type ElementsSelectorProps, type DomRect } from './types'
 
-const LOG = '[DOM PICKER LOG]'
-
-const DomPicker: React.FC<DomPickerProps> = ({
+const ElementsSelector: React.FC<ElementsSelectorProps> = ({
   children,
-  onPick,
+  onSelect,
   showSelectionArea = true,
   requiresShiftKey = false,
   selectOnMouseUp = false
@@ -63,7 +61,7 @@ const DomPicker: React.FC<DomPickerProps> = ({
       }
     })
 
-    onPick(selectedElements)
+    onSelect(selectedElements)
   }
 
   const isWithinSelection = (rect: DomRect, selection: DomRect): boolean => {
@@ -104,4 +102,4 @@ const DomPicker: React.FC<DomPickerProps> = ({
   )
 }
 
-export default DomPicker
+export default ElementsSelector
