@@ -1,5 +1,19 @@
-# React Dom Picker
+# React Elements Selector
 
+## Installation
+Install the package using npm:
+```
+npm install react-elements-selector
+```
+
+## Props
+| Prop                | Type                        | Default Value | Description                                                                                                                                                                                                                                 |
+| ------------------- | --------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `children`          | `React.ReactNode`           | -             | A React node representing the DOM elements that can be selected.                                                                                                                                                                            |
+| `onSelect`          | `(selectedElements: Element[]) => void` | -             | A callback function that receives an array of selected DOM elements.                                                                                                                                                                       |
+| `showSelectionArea` | `boolean`                   | `true`        | A boolean indicating whether to show the selection area during the selection process.                                                                                                                                                      |
+| `requiresShiftKey`  | `boolean`                   | `false`       | A boolean indicating whether the shift key should be pressed to activate the selection process.                                                                                                                                            |
+| `selectOnMouseUp`   | `boolean`                   | `false`       | A boolean indicating whether the selection should be finalized on mouse up.                                                                                                                                                                |
 
 
 ## Features
