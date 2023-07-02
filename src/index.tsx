@@ -1,10 +1,4 @@
-import React from 'react'
+import DomPicker from './components/DomPicker'
+import { type DomPickerProps } from './components/DomPicker/types'
 
-export interface ButtonProps {
-  text: string
-  onClick: () => void
-}
-
-export const Button: React.FC<ButtonProps> = ({ text, onClick }) => {
-  return <button onClick={onClick}>{text}</button>
-}
+export { DomPicker, type DomPickerProps }
