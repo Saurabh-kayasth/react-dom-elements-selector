@@ -1,5 +1,7 @@
 # React Elements Selector
 
+![ezgif com-video-to-gif](https://github.com/Saurabh-kayasth/react-elements-selector/assets/30195666/1a41d03d-ce4a-4d40-85cc-3807117c520f)
+
 ## Installation
 Install the package using npm:
 ```
