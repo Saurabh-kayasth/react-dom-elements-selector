@@ -5,7 +5,7 @@ function Header() {
   return (
     <div className={styles.header__title}>
       React&nbsp; <span className={styles.dom__text}>Elements</span>
-      &nbsp;Picker
+      &nbsp;Selector
     </div>
   )
 }
