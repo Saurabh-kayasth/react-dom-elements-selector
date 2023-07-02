@@ -3,7 +3,11 @@ import { type DomPickerProps, type DomRect } from './types'
 
 const LOG = '[DOM PICKER LOG]'
 
-const DomPicker: React.FC<DomPickerProps> = ({ children, onPick }) => {
+const DomPicker: React.FC<DomPickerProps> = ({
+  children,
+  onPick,
+  showSelectionArea = true
+}) => {
   const [selection, setSelection] = useState<DomRect | null>(null)
   const containerRef = useRef<HTMLDivElement>(null)
 
@@ -75,9 +79,22 @@ const DomPicker: React.FC<DomPickerProps> = ({ children, onPick }) => {
       ref={containerRef}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
-      style={{ width: '100%', height: '100%', position: 'relative' }}
+      style={{ width: '100%', height: '100%' }}
     >
       {children}
+      {showSelectionArea && (
+        <div
+          style={{
+            position: 'absolute',
+            top: selection?.y,
+            left: selection?.x,
+            width: selection?.width,
+            height: selection?.height,
+            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+            border: '1px solid rgba(255,255,255,0.25)'
+          }}
+        />
+      )}
     </div>
   )
 }
