@@ -1,9 +1,8 @@
-# React TypeScript NPM Package Boilerplate
+# React Dom Picker
 
-A boilerplate project for creating React TypeScript npm packages with Rollup, ESLint, and Prettier.
+
 
 ## Features
- - Boilerplate setup for creating React **TypeScript** npm packages
  - Bundling using **Rollup**
  - TypeScript for static typing 
  - **ESLint** with TypeScript support for code linting
