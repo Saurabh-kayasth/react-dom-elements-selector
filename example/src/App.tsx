@@ -1,19 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './App.css'
 import Header from './components/Header'
 import Body from './components/Body'
 import Example1 from './components/Examples/Example1'
-import Example2 from './components/Examples/Example2'
-import Example3 from './components/Examples/Example3'
+import Config from './components/Config'
 
 function App() {
+  const [showSelectionArea, setShowSelectionArea] = useState(false)
+  const [requiresShiftKey, setRequiresShiftKey] = useState(false)
+  const [selectOnMouseUp, setSelectOnMouseUp] = useState(false)
+
   return (
     <div className="app">
       <Header />
       <Body>
-        <Example1 />
-        <Example2 />
-        <Example3 />
+        <Example1
+          showSelectionArea={showSelectionArea}
+          requiresShiftKey={requiresShiftKey}
+          selectOnMouseUp={selectOnMouseUp}
+        />
+
+        <Config
+          config={{ selectOnMouseUp, showSelectionArea, requiresShiftKey }}
+          setConfig={(config) => {
+            setRequiresShiftKey(config.requiresShiftKey)
+            setSelectOnMouseUp(config.selectOnMouseUp)
+            setShowSelectionArea(config.showSelectionArea)
+          }}
+        />
       </Body>
     </div>
   )
