@@ -5,7 +5,7 @@
 ## Installation
 Install the package using npm:
 ```
-npm install react-elements-selector
+npm install react-dom-elements-selector
 ```
 
 ## Props
