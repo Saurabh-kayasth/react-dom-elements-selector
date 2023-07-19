@@ -15,10 +15,15 @@
     "format": "prettier --write .",
     "start": "rollup -c -w"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["react-elements", "react element selector"],
+  "author": "Saurabh Kayasth",
   "license": "MIT",
-  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Saurabh-kayasth/react-elements-selector"
+  },
+  "homepage": "https://github.com/Saurabh-kayasth/react-elements-selector",
+  "description": "With this package, users can effortlessly choose multiple elements from a given set, making it ideal for scenarios where bulk actions or interactive operations are required.",
   "devDependencies": {
     "@babel/preset-react": "^7.22.5",
     "@rollup/plugin-babel": "^6.0.3",
