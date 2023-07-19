@@ -1,5 +1,5 @@
 {
-  "name": "react-elements-selector",
+  "name": "react-dom-elements-selector",
   "version": "1.0.0",
   "type": "module",
   "main": "dist/index.js",
