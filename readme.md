@@ -1,6 +1,6 @@
 # React DOM <span style="color: red;">Elements</span> Selector
 
-![ezgif com-video-to-gif](https://github.com/Saurabh-kayasth/react-elements-selector/assets/30195666/1a41d03d-ce4a-4d40-85cc-3807117c520f)
+![download](https://github.com/Saurabh-kayasth/react-dom-elements-selector/assets/30195666/7c6fb524-5f08-4c88-9eb4-cecd437c7d24)
 
 ## Installation
 Install the package using npm:
