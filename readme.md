@@ -1,5 +1,8 @@
 # React DOM <span style="color: red;">Elements</span> Selector
 
+[![npm version](https://badge.fury.io/js/react-dom-elements-selector.svg)](https://badge.fury.io/js/react-dom-elements-selector)
+[![npm downloads](https://img.shields.io/npm/dw/react-dom-elements-selector.svg?maxAge=2592000)](https://img.shields.io/npm/dm/react-dom-elements-selector.svg?maxAge=2592000)
+
 ![download](https://github.com/Saurabh-kayasth/react-dom-elements-selector/assets/30195666/7c6fb524-5f08-4c88-9eb4-cecd437c7d24)
 
 ## Installation
