@@ -88,7 +88,7 @@ const ElementsSelector: React.FC<ElementsSelectorProps> = ({
       {showSelectionArea && (
         <div
           style={{
-            position: 'absolute',
+            position: 'fixed',
             top: selectedRect?.y,
             left: selectedRect?.x,
             width: selectedRect?.width,
