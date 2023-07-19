@@ -3,6 +3,11 @@
 [![npm version](https://badge.fury.io/js/react-dom-elements-selector.svg)](https://badge.fury.io/js/react-dom-elements-selector)
 [![npm downloads](https://img.shields.io/npm/dw/react-dom-elements-selector.svg?maxAge=2592000)](https://img.shields.io/npm/dm/react-dom-elements-selector.svg?maxAge=2592000)
 
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![RollupJS](https://img.shields.io/badge/RollupJS-ef3335?style=for-the-badge&logo=rollup.js&logoColor=white)
+![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
+
 ![download](https://github.com/Saurabh-kayasth/react-dom-elements-selector/assets/30195666/7c6fb524-5f08-4c88-9eb4-cecd437c7d24)
 
 ## Installation
