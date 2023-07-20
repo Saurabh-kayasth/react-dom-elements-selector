@@ -12,7 +12,11 @@ const ElementsSelector: React.FC<ElementsSelectorProps> = ({
   const [selectedRect, setSelectedRect] = useState<DomRect | null>(null)
 
   const handleMouseDown = (event: React.MouseEvent<HTMLDivElement>): void => {
-    event.preventDefault()
+    // Check if the target of the click event is the current div
+    // If it's not the current div, we don't prevent the default behavior
+    if (event.target === containerRef.current) {
+      event.preventDefault()
+    }
     if (requiresShiftKey && !event.shiftKey) return
 
     const { clientX, clientY } = event
